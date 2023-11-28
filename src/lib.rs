@@ -9,7 +9,7 @@ pub trait Solver {
     fn star_two(&self, input: &str) -> String;
 }
 
-pub fn init_solver(day: u8) -> Option<Box<dyn Solver>> {
+pub fn get_solver(day: u8) -> Option<Box<dyn Solver>> {
     match day {
         1 => Some(Box::new(day01::Day01 {})),
         _ => None,
