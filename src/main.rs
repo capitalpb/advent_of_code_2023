@@ -13,12 +13,8 @@ struct Args {
 fn main() {
     let args = Args::parse();
     let day = args.day.unwrap_or(LATEST_DAY);
-
-    if day == 0 || day > 25 {
-        println!("Invalid day entered")
-    }
-
     let padded_day = format!("{day:0>2}");
+
     println!("AoC 2023: Day {padded_day}");
     println!("================");
     println!();

@@ -9,7 +9,9 @@ there's nothing to lose.
 
 ## Project Structure
 
-Stealing the `Solver` trait and project layout from my 2022 project. It worked
-well enough for me. Going to add the [clap](https://crates.io/crates/clap)
-crate to do some command line argument parsing. This will allow me to pass the
-day number as an argument and only run the puzzles from that specific day.
+Stole the `Solver` trait and project layout from my 2022 project. It worked
+well enough for me. Added the [clap](https://crates.io/crates/clap) crate
+to do some command line argument parsing. This allows me to pass the day
+number as an argument and only run the puzzles from that specific day. It
+also leaves open the option to easily add something like a `--timed` flag
+to time the solutions later.
