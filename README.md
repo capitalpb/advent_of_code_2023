@@ -15,3 +15,10 @@ to do some command line argument parsing. This allows me to pass the day
 number as an argument and only run the puzzles from that specific day. It
 also leaves open the option to easily add something like a `--timed` flag
 to time the solutions later.
+
+## Day 1
+
+Solved part one in about thirty seconds. But wow, either my brain is just tired
+at this hour or I’m lacking in skill, but part two is harder than any other
+year has been on the first day. Anyway, I managed to solve it, but I absolutely
+hate it, and will definitely be coming back to try to clean this one up.
