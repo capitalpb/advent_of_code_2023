@@ -21,7 +21,76 @@ impl Solver for Day01 {
     }
 
     fn star_two(&self, input: &str) -> String {
-        todo!()
+        let mut result = 0;
+
+        for line in input.lines() {
+            let mut first = None;
+            let mut last = None;
+
+            while first == None {
+                for index in 0..line.len() {
+                    let line_slice = &line[index..];
+                    if line_slice.starts_with("one") || line_slice.starts_with("1") {
+                        first = Some(1);
+                    } else if line_slice.starts_with("two") || line_slice.starts_with("2") {
+                        first = Some(2);
+                    } else if line_slice.starts_with("three") || line_slice.starts_with("3") {
+                        first = Some(3);
+                    } else if line_slice.starts_with("four") || line_slice.starts_with("4") {
+                        first = Some(4);
+                    } else if line_slice.starts_with("five") || line_slice.starts_with("5") {
+                        first = Some(5);
+                    } else if line_slice.starts_with("six") || line_slice.starts_with("6") {
+                        first = Some(6);
+                    } else if line_slice.starts_with("seven") || line_slice.starts_with("7") {
+                        first = Some(7);
+                    } else if line_slice.starts_with("eight") || line_slice.starts_with("8") {
+                        first = Some(8);
+                    } else if line_slice.starts_with("nine") || line_slice.starts_with("9") {
+                        first = Some(9);
+                    }
+
+                    if first.is_some() {
+                        break;
+                    }
+                }
+            }
+
+            while last == None {
+                for index in (0..line.len()).rev() {
+                    let line_slice = &line[index..];
+                    if line_slice.starts_with("one") || line_slice.starts_with("1") {
+                        last = Some(1);
+                    } else if line_slice.starts_with("two") || line_slice.starts_with("2") {
+                        last = Some(2);
+                    } else if line_slice.starts_with("three") || line_slice.starts_with("3") {
+                        last = Some(3);
+                    } else if line_slice.starts_with("four") || line_slice.starts_with("4") {
+                        last = Some(4);
+                    } else if line_slice.starts_with("five") || line_slice.starts_with("5") {
+                        last = Some(5);
+                    } else if line_slice.starts_with("six") || line_slice.starts_with("6") {
+                        last = Some(6);
+                    } else if line_slice.starts_with("seven") || line_slice.starts_with("7") {
+                        last = Some(7);
+                    } else if line_slice.starts_with("eight") || line_slice.starts_with("8") {
+                        last = Some(8);
+                    } else if line_slice.starts_with("nine") || line_slice.starts_with("9") {
+                        last = Some(9);
+                    }
+
+                    if last.is_some() {
+                        break;
+                    }
+                }
+            }
+
+            result += format!("{}{}", first.unwrap(), last.unwrap())
+                .parse::<i32>()
+                .unwrap();
+        }
+
+        result.to_string()
     }
 }
 
