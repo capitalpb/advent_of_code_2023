@@ -22,3 +22,12 @@ Solved part one in about thirty seconds. But wow, either my brain is just tired
 at this hour or I’m lacking in skill, but part two is harder than any other
 year has been on the first day. Anyway, I managed to solve it, but I absolutely
 hate it, and will definitely be coming back to try to clean this one up.
+
+## Day 2
+
+Not too tricky today. Part 2 wasn't as big of a curveball as yesterday
+thankfully. I don't think it's the cleanest code I've ever written, but hey -
+the whole point of this is to get better at Rust, so I'll definitely be
+learning as I go, and coming back at the end to clean a lot of these up. I
+think for this one I'd like to look into a parsing crate like `nom` to clean
+up all the spliting and unwrapping in the two `from()` methods.
