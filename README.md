@@ -31,3 +31,12 @@ the whole point of this is to get better at Rust, so I'll definitely be
 learning as I go, and coming back at the end to clean a lot of these up. I
 think for this one I'd like to look into a parsing crate like `nom` to clean
 up all the spliting and unwrapping in the two `from()` methods.
+
+## Day 3
+
+Another day of the 2023 Advent of Code, and another day where I hate looking
+at my code. This year just seems like it is starting off a lot more complex
+than I remember in previous years. This one was a little tricky, but I got
+there without any major setbacks. Another one I am excited to come back to and
+clean up, but this first pass is all about getting a solution, and this one
+works.
