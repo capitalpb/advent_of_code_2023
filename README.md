@@ -40,3 +40,10 @@ than I remember in previous years. This one was a little tricky, but I got
 there without any major setbacks. Another one I am excited to come back to and
 clean up, but this first pass is all about getting a solution, and this one
 works.
+
+## Day 4
+
+I enjoyed this one. It was a nice simple break after Days 1 and 3; the type of
+basic puzzle I expect from the first few days of Advent of Code. Pretty simple
+logic in this one, I don't think I would change too much. I'm sure I'll find a
+way to clean up how it's written a bit, but I'm happy with this one today.
