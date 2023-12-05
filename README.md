@@ -47,3 +47,12 @@ I enjoyed this one. It was a nice simple break after Days 1 and 3; the type of
 basic puzzle I expect from the first few days of Advent of Code. Pretty simple
 logic in this one, I don't think I would change too much. I'm sure I'll find a
 way to clean up how it's written a bit, but I'm happy with this one today.
+
+# Day 5
+
+Well, I can't say much about this one. The code is ugly, horribly inefficient,
+and part two takes a solid half hour to run. It got the right answer though, so
+that's something I suppose. I think something like `nom` to parse the input
+would be much cleaner, and there's got to be a better way of going about part
+two than just brute forcing through every possible seed, but hey, it works so
+that's good enough for now.
