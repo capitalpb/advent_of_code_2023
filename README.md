@@ -56,3 +56,13 @@ that's something I suppose. I think something like `nom` to parse the input
 would be much cleaner, and there's got to be a better way of going about part
 two than just brute forcing through every possible seed, but hey, it works so
 that's good enough for now.
+
+# Day 6
+
+A nice simple one today. And only a half second delay for part two instead of
+half an hour. What a treat. I could probably have nicer input parsing, but that
+seems to be the theme this year, so that will become a big focus of my next
+round through these I'm guessing. The algorithm here to get the winning
+possibilities could also probably be improved upon by figuring out what the
+number of seconds for the current record is, and only looping from there until
+hitting a number that doesn't win, as opposed to brute-forcing the whole loop.
