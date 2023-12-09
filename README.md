@@ -66,3 +66,21 @@ round through these I'm guessing. The algorithm here to get the winning
 possibilities could also probably be improved upon by figuring out what the
 number of seconds for the current record is, and only looping from there until
 hitting a number that doesn't win, as opposed to brute-forcing the whole loop.
+
+# Day 7
+
+Fought with this one for a while, and needed to take a break from it. I'll come
+back when I have an easier day and have the time. Yup, I'm a quitter today.
+
+# Day 8
+
+First part was simple enough. Second part was easy logically, but after running
+the brute force solution with a parallel iterator from `rayon` and maxing out
+all 12 cores of this CPU, it was still taking forever. I always get tripped up
+by these ones that need fancy math, because although I was always good at math,
+I've never been good at looking at these problems and figuring out what kind
+of formula would apply. So I cheated and looked at other people's comments for
+their solutions, and saw the least common multiple mentioned. This made sense
+to me, so I implemented it and got a result almost instantly. I hate having to
+look at other comments to solve these things, but I never would have came to
+that conclusion myself.
