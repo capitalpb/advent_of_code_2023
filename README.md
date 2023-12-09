@@ -84,3 +84,6 @@ their solutions, and saw the least common multiple mentioned. This made sense
 to me, so I implemented it and got a result almost instantly. I hate having to
 look at other comments to solve these things, but I never would have came to
 that conclusion myself.
+
+The code still isn't the cleanest, and I'd love to tidy up the parsing, but
+it works and I'm happy.
