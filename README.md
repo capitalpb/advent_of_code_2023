@@ -87,3 +87,10 @@ that conclusion myself.
 
 The code still isn't the cleanest, and I'd love to tidy up the parsing, but
 it works and I'm happy.
+
+# Day 9
+
+A pretty simple one today, but fun to do. I could probably clean up the parsing
+code (AKA my theme for this year), and create just one single vector instead of
+having the original history separated out from all of the sequences, but this
+is what made sense to me on my first pass so it's how I did it.
