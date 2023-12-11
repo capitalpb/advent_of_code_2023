@@ -1,14 +1,33 @@
 use crate::Solver;
 use itertools::Itertools;
+use std::cmp::Ordering;
 
-#[derive(Debug)]
+#[derive(Clone, Copy)]
+enum JType {
+    Jokers = 1,
+    Jacks = 11,
+}
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
+enum HandType {
+    HighCard,
+    OnePair,
+    TwoPair,
+    ThreeOfAKind,
+    FullHouse,
+    FourOfAKind,
+    FiveOfAKind,
+}
+
+#[derive(Debug, Eq, PartialEq)]
 struct CardHand {
     hand: Vec<u64>,
     bid: u64,
+    hand_type: HandType,
 }
 
 impl CardHand {
-    fn from(input: &str) -> CardHand {
+    fn from(input: &str, j_type: JType) -> CardHand {
         let (hand, bid) = input.split_once(' ').unwrap();
 
         let hand = hand
@@ -16,50 +35,93 @@ impl CardHand {
             .map(|card| match card {
                 '2'..='9' => card.to_digit(10).unwrap() as u64,
                 'T' => 10,
-                'J' => 11,
+                'J' => j_type as u64,
                 'Q' => 12,
                 'K' => 13,
                 'A' => 14,
                 _ => unreachable!("malformed input"),
             })
-            .collect();
+            .collect::<Vec<_>>();
 
         let bid = bid.parse::<u64>().unwrap();
 
-        CardHand { hand, bid }
-    }
-
-    fn score(&self) -> u64 {
-        let counts = self.hand.iter().counts();
-
-        let hand_type_bonus: u64 = match counts.len() {
-            1 => 6_000_000_000,
+        let counts = hand.iter().counts();
+        let hand_type = match counts.len() {
+            1 => HandType::FiveOfAKind,
             2 => {
-                if counts.values().contains(&4) {
-                    5_000_000_000
+                if hand.contains(&1) {
+                    HandType::FiveOfAKind
                 } else {
-                    4_000_000_000
+                    if counts.values().contains(&4) {
+                        HandType::FourOfAKind
+                    } else {
+                        HandType::FullHouse
+                    }
                 }
             }
             3 => {
                 if counts.values().contains(&3) {
-                    3_000_000_000
+                    if hand.contains(&1) {
+                        HandType::FourOfAKind
+                    } else {
+                        HandType::ThreeOfAKind
+                    }
                 } else {
-                    2_000_000_000
+                    if counts.get(&1) == Some(&2) {
+                        HandType::FourOfAKind
+                    } else if counts.get(&1) == Some(&1) {
+                        HandType::FullHouse
+                    } else {
+                        HandType::TwoPair
+                    }
                 }
             }
-            4 => 1_000_000_000,
-            _ => 0,
+            4 => {
+                if hand.contains(&1) {
+                    HandType::ThreeOfAKind
+                } else {
+                    HandType::OnePair
+                }
+            }
+            _ => {
+                if hand.contains(&1) {
+                    HandType::OnePair
+                } else {
+                    HandType::HighCard
+                }
+            }
         };
 
-        let hand_score = self
-            .hand
-            .iter()
-            .enumerate()
-            .map(|(index, value)| value << (4 * (4 - index)))
-            .sum::<u64>();
+        CardHand {
+            hand,
+            bid,
+            hand_type,
+        }
+    }
+}
 
-        hand_type_bonus + hand_score
+impl PartialOrd for CardHand {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for CardHand {
+    fn cmp(&self, other: &Self) -> Ordering {
+        let hand_type_cmp = self.hand_type.cmp(&other.hand_type);
+
+        if hand_type_cmp != Ordering::Equal {
+            return hand_type_cmp;
+        } else {
+            for i in 0..5 {
+                let value_cmp = self.hand[i].cmp(&other.hand[i]);
+                if value_cmp != Ordering::Equal {
+                    return value_cmp;
+                }
+            }
+        }
+
+        Ordering::Equal
     }
 }
 
@@ -69,8 +131,8 @@ impl Solver for Day07 {
     fn star_one(&self, input: &str) -> String {
         input
             .lines()
-            .map(CardHand::from)
-            .sorted_by_key(|hand| hand.score())
+            .map(|line| CardHand::from(line, JType::Jacks))
+            .sorted()
             .enumerate()
             .map(|(index, hand)| hand.bid * (index as u64 + 1))
             .sum::<u64>()
@@ -78,7 +140,14 @@ impl Solver for Day07 {
     }
 
     fn star_two(&self, input: &str) -> String {
-        todo!()
+        input
+            .lines()
+            .map(|line| CardHand::from(line, JType::Jokers))
+            .sorted()
+            .enumerate()
+            .map(|(index, hand)| hand.bid * (index as u64 + 1))
+            .sum::<u64>()
+            .to_string()
     }
 }
 
@@ -97,5 +166,11 @@ QQQJA 483
     fn test_star_one() {
         let solver = Day07 {};
         assert_eq!(solver.star_one(TEST_DATA), "6440");
+    }
+
+    #[test]
+    fn test_star_two() {
+        let solver = Day07 {};
+        assert_eq!(solver.star_two(TEST_DATA), "5905");
     }
 }

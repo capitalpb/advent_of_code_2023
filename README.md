@@ -69,8 +69,9 @@ hitting a number that doesn't win, as opposed to brute-forcing the whole loop.
 
 # Day 7
 
-Fought with this one for a while, and needed to take a break from it. I'll come
-back when I have an easier day and have the time. Yup, I'm a quitter today.
+Two days, a few failed solutions, some misread instructions, and a lot of
+manually parsing output data and debugging silly tiny mistakes... but it's
+finally done. I don't really wanna talk about it.
 
 # Day 8
 
