@@ -104,3 +104,16 @@ now. I don't love the use of a label to continue/break a loop, and the
 
 Upon looking at star 2 I don't even have the slightest idea of where to start.
 I may have to come back to this one at a later date. Sigh.
+
+## Day 11
+
+That was a fun one. Especially after yesterday. As soon as I saw that star 1
+was expanding each gap by 1, I just had a feeling that star 2 would be doing
+the same calculation with a larger expansion, so I wrote my code in a way that
+would make that quite simple to modify. When I saw the factor of 1,000,000 I
+was scared that it was going to be one of those processor-destroying AoC
+challenges where you either wait for 2 hours to get an answer, or have to come
+up with a fancy mathematical way of solving things, but after changing my `i32`
+distance to an `i64`, it calculated just fine and instantly. I guess only
+storing the locations of galaxys and not dealing with the entire grid was good
+enough to keep the performance down.

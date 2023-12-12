@@ -101,7 +101,7 @@ impl Solver for Day10 {
         steps.div_ceil(2).to_string()
     }
 
-    fn star_two(&self, input: &str) -> String {
+    fn star_two(&self, _input: &str) -> String {
         todo!()
     }
 }
