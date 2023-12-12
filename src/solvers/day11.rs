@@ -8,6 +8,12 @@ struct Point {
     y: usize,
 }
 
+impl Point {
+    fn distance_from(&self, other: &Point) -> i64 {
+        abs(self.x as i64 - other.x as i64) + abs(self.y as i64 - other.y as i64)
+    }
+}
+
 struct GalaxyMap {
     locations: Vec<Point>,
 }
@@ -88,9 +94,7 @@ impl GalaxyMap {
         self.locations
             .iter()
             .combinations(2)
-            .map(|pair| {
-                abs(pair[0].x as i64 - pair[1].x as i64) + abs(pair[0].y as i64 - pair[1].y as i64)
-            })
+            .map(|pair| pair[0].distance_from(pair[1]))
             .sum::<i64>()
     }
 }
