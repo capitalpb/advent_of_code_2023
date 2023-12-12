@@ -115,5 +115,5 @@ was scared that it was going to be one of those processor-destroying AoC
 challenges where you either wait for 2 hours to get an answer, or have to come
 up with a fancy mathematical way of solving things, but after changing my `i32`
 distance to an `i64`, it calculated just fine and instantly. I guess only
-storing the locations of galaxys and not dealing with the entire grid was good
+storing the locations of galaxies and not dealing with the entire grid was good
 enough to keep the performance down.
