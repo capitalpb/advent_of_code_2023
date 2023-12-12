@@ -48,7 +48,7 @@ basic puzzle I expect from the first few days of Advent of Code. Pretty simple
 logic in this one, I don't think I would change too much. I'm sure I'll find a
 way to clean up how it's written a bit, but I'm happy with this one today.
 
-# Day 5
+## Day 5
 
 Well, I can't say much about this one. The code is ugly, horribly inefficient,
 and part two takes a solid half hour to run. It got the right answer though, so
@@ -57,7 +57,7 @@ would be much cleaner, and there's got to be a better way of going about part
 two than just brute forcing through every possible seed, but hey, it works so
 that's good enough for now.
 
-# Day 6
+## Day 6
 
 A nice simple one today. And only a half second delay for part two instead of
 half an hour. What a treat. I could probably have nicer input parsing, but that
@@ -67,13 +67,13 @@ possibilities could also probably be improved upon by figuring out what the
 number of seconds for the current record is, and only looping from there until
 hitting a number that doesn't win, as opposed to brute-forcing the whole loop.
 
-# Day 7
+## Day 7
 
 Two days, a few failed solutions, some misread instructions, and a lot of
 manually parsing output data and debugging silly tiny mistakes... but it's
 finally done. I don't really wanna talk about it.
 
-# Day 8
+## Day 8
 
 First part was simple enough. Second part was easy logically, but after running
 the brute force solution with a parallel iterator from `rayon` and maxing out
@@ -89,9 +89,18 @@ that conclusion myself.
 The code still isn't the cleanest, and I'd love to tidy up the parsing, but
 it works and I'm happy.
 
-# Day 9
+## Day 9
 
 A pretty simple one today, but fun to do. I could probably clean up the parsing
 code (AKA my theme for this year), and create just one single vector instead of
 having the original history separated out from all of the sequences, but this
 is what made sense to me on my first pass so it's how I did it.
+
+## Day 10
+
+Well, star one is solved. I don't love the code, but yet again, it works for
+now. I don't love the use of a label to continue/break a loop, and the
+`valid_steps` function is a mess that could probably be done much cleaner.
+
+Upon looking at star 2 I don't even have the slightest idea of where to start.
+I may have to come back to this one at a later date. Sigh.

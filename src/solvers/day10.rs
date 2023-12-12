@@ -1,5 +1,4 @@
 use crate::Solver;
-use itertools::Itertools;
 
 #[derive(Debug)]
 struct PipeMap {
