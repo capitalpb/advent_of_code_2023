@@ -118,6 +118,20 @@ distance to an `i64`, it calculated just fine and instantly. I guess only
 storing the locations of galaxies and not dealing with the entire grid was good
 enough to keep the performance down.
 
+## Day 14
+
+The first part was simple enough. Adding in the 3 remaining tilt methods for
+star 2 was also simple enough, and worked just how I figured it would. Tried
+the brute force solution first, but realized it was going to take a ridiculous
+amount of time and went back to figure out an algorithm. It was simple enough
+to guess that it would hit a point where it just repeats infinitely, but
+actually coding out the math to extrapolate that took way more time than I want
+to admit. Not sure why I struggled with it so much, but after some pen and
+paper mathing, I essentially got there. Ended up having to subract `1` from
+this calculation, and either I'm just missing something or am way too tired,
+because I don't know why it's one less than what I thought it would be, but it
+works so who am I to complain.
+
 ## Day 15
 
 This was a fun one. I don't have much to say - I had an idea almost immediately
