@@ -2,7 +2,7 @@ mod solvers;
 
 use crate::solvers::*;
 
-pub const LATEST_DAY: u8 = 11;
+pub const LATEST_DAY: u8 = 15;
 
 pub trait Solver {
     fn star_one(&self, input: &str) -> String;
@@ -22,6 +22,7 @@ pub fn get_solver(day: u8) -> Option<Box<dyn Solver>> {
         9 => Some(Box::new(day09::Day09 {})),
         10 => Some(Box::new(day10::Day10 {})),
         11 => Some(Box::new(day11::Day11 {})),
+        15 => Some(Box::new(day15::Day15 {})),
         _ => None,
     }
 }

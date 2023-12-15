@@ -117,3 +117,9 @@ up with a fancy mathematical way of solving things, but after changing my `i32`
 distance to an `i64`, it calculated just fine and instantly. I guess only
 storing the locations of galaxies and not dealing with the entire grid was good
 enough to keep the performance down.
+
+## Day 15
+
+This was a fun one. I don't have much to say - I had an idea almost immediately
+and it worked out without much struggle. There's probably some cleaner ways to
+write parts of this, but I'm not too disappointed with how it turned out.
