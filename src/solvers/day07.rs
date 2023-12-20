@@ -51,12 +51,10 @@ impl CardHand {
             2 => {
                 if hand.contains(&1) {
                     HandType::FiveOfAKind
+                } else if counts.values().contains(&4) {
+                    HandType::FourOfAKind
                 } else {
-                    if counts.values().contains(&4) {
-                        HandType::FourOfAKind
-                    } else {
-                        HandType::FullHouse
-                    }
+                    HandType::FullHouse
                 }
             }
             3 => {
@@ -66,14 +64,12 @@ impl CardHand {
                     } else {
                         HandType::ThreeOfAKind
                     }
+                } else if counts.get(&1) == Some(&2) {
+                    HandType::FourOfAKind
+                } else if counts.get(&1) == Some(&1) {
+                    HandType::FullHouse
                 } else {
-                    if counts.get(&1) == Some(&2) {
-                        HandType::FourOfAKind
-                    } else if counts.get(&1) == Some(&1) {
-                        HandType::FullHouse
-                    } else {
-                        HandType::TwoPair
-                    }
+                    HandType::TwoPair
                 }
             }
             4 => {

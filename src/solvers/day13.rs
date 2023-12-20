@@ -52,7 +52,7 @@ impl Solver for Day13 {
         summary.to_string()
     }
 
-    fn star_two(&self, input: &str) -> String {
+    fn star_two(&self, _input: &str) -> String {
         todo!()
     }
 }

@@ -10,8 +10,8 @@ fn get_history(input: &str) -> Vec<i32> {
         .collect::<Vec<_>>()
 }
 
-fn get_sequences(history: &Vec<i32>) -> Vec<Vec<i32>> {
-    let mut sequences = vec![get_steps(&history)];
+fn get_sequences(history: &[i32]) -> Vec<Vec<i32>> {
+    let mut sequences = vec![get_steps(history)];
 
     while !sequences.last().unwrap().iter().all_equal() {
         sequences.push(get_steps(sequences.last().unwrap()));
@@ -20,7 +20,7 @@ fn get_sequences(history: &Vec<i32>) -> Vec<Vec<i32>> {
     sequences
 }
 
-fn get_steps(sequence: &Vec<i32>) -> Vec<i32> {
+fn get_steps(sequence: &[i32]) -> Vec<i32> {
     sequence
         .iter()
         .tuple_windows()
@@ -38,7 +38,7 @@ impl Solver for Day09 {
                 let add_value = get_sequences(&history)
                     .iter()
                     .rev()
-                    .map(|seq| seq.last().unwrap().clone())
+                    .map(|seq| *seq.last().unwrap())
                     .reduce(|acc, x| acc + x)
                     .unwrap();
 
@@ -57,7 +57,7 @@ impl Solver for Day09 {
                 let minus_value = get_sequences(&history)
                     .iter()
                     .rev()
-                    .map(|seq| seq.first().unwrap().clone())
+                    .map(|seq| *seq.first().unwrap())
                     .reduce(|acc, x| x - acc)
                     .unwrap();
 

@@ -35,12 +35,12 @@ impl AlmanacMap {
         let entry = self
             .entries
             .iter()
-            .find(|entry| entry.source_range.contains(&source));
+            .find(|entry| entry.source_range.contains(source));
 
         if let Some(entry) = entry {
             entry.destination_range.start() + (source - entry.source_range.start())
         } else {
-            source.clone()
+            *source
         }
     }
 }
@@ -96,8 +96,7 @@ impl Almanac {
             .filter_map(|seed| seed.parse::<u64>().ok())
             .collect::<Vec<_>>()
             .chunks(2)
-            .map(|chunk| (chunk[0]..(chunk[0] + chunk[1])).collect::<Vec<_>>())
-            .flatten()
+            .flat_map(|chunk| (chunk[0]..(chunk[0] + chunk[1])).collect::<Vec<_>>())
             .collect::<Vec<_>>();
 
         let almanac_maps = input_sections.map(AlmanacMap::from).collect::<Vec<_>>();

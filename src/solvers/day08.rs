@@ -11,7 +11,7 @@ impl Solver for Day08 {
         let mut route_map = HashMap::new();
 
         for line in map.lines() {
-            let line = line.replace(" ", "").replace("(", "").replace(")", "");
+            let line = line.replace([' ', '('], "").replace(')', "");
             let (position, destinations) = line.split_once('=').unwrap();
             let (left, right) = destinations.split_once(',').unwrap();
             route_map.insert(position.to_string(), (left.to_string(), right.to_string()));
@@ -39,7 +39,7 @@ impl Solver for Day08 {
         let mut route_map = HashMap::new();
 
         for line in map.lines() {
-            let line = line.replace(" ", "").replace("(", "").replace(")", "");
+            let line = line.replace([' ', '('], "").replace(')', "");
             let (position, destinations) = line.split_once('=').unwrap();
             let (left, right) = destinations.split_once(',').unwrap();
             route_map.insert(position.to_string(), (left.to_string(), right.to_string()));

@@ -34,9 +34,9 @@ impl Solver for Day15 {
                 .unwrap();
 
             let box_number = hash_algorithm(label);
-            let lenses = boxes.entry(box_number).or_insert(vec![]);
+            let lenses = boxes.entry(box_number).or_default();
 
-            if focal_length == "" {
+            if focal_length.is_empty() {
                 lenses.retain(|lens| lens.label != label);
                 continue;
             }

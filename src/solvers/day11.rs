@@ -24,7 +24,7 @@ impl GalaxyMap {
             .lines()
             .rev()
             .enumerate()
-            .map(|(x, row)| {
+            .flat_map(|(x, row)| {
                 row.chars()
                     .enumerate()
                     .filter_map(|(y, digit)| {
@@ -36,7 +36,6 @@ impl GalaxyMap {
                     })
                     .collect::<Vec<_>>()
             })
-            .flatten()
             .collect::<Vec<_>>();
 
         GalaxyMap { locations }
@@ -52,7 +51,7 @@ impl GalaxyMap {
         let max_y = *occupied_rows.iter().max().unwrap();
 
         (0..max_y)
-            .filter(move |y| !occupied_rows.contains(&y))
+            .filter(move |y| !occupied_rows.contains(y))
             .collect()
     }
 
@@ -66,7 +65,7 @@ impl GalaxyMap {
         let max_x = *occupied_cols.iter().max().unwrap();
 
         (0..max_x)
-            .filter(move |x| !occupied_cols.contains(&x))
+            .filter(move |x| !occupied_cols.contains(x))
             .collect()
     }
 

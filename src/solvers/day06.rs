@@ -42,7 +42,7 @@ impl Solver for Day06 {
         races
             .iter()
             .map(|race| race.possible_ways_to_win())
-            .fold(1, |acc, count| acc * count)
+            .product::<usize>()
             .to_string()
     }
 
@@ -53,7 +53,7 @@ impl Solver for Day06 {
                 line.split_once(':')
                     .unwrap()
                     .1
-                    .replace(" ", "")
+                    .replace(' ', "")
                     .parse::<u64>()
                     .unwrap()
             })

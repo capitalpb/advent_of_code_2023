@@ -38,7 +38,7 @@ impl EngineSchematic {
                             });
                         }
                     }
-                    ch if ch.is_digit(10) => {
+                    ch if ch.is_ascii_digit() => {
                         if let Some(mut_location) = location.as_mut() {
                             mut_location.end_col = col;
                         } else {
@@ -81,10 +81,10 @@ impl EngineSchematic {
     }
 
     fn are_adjacent(&self, location: &Location, other_location: &Location) -> bool {
-        location.start_col >= other_location.start_col.checked_sub(1).unwrap_or(0)
+        location.start_col >= other_location.start_col.saturating_sub(1)
             && location.end_col <= other_location.end_col + 1
             && (location.row == other_location.row
-                || location.row == other_location.row.checked_sub(1).unwrap_or(0)
+                || location.row == other_location.row.saturating_sub(1)
                 || location.row == other_location.row + 1)
     }
 }

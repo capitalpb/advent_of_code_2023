@@ -38,7 +38,7 @@ struct Game {
 impl Game {
     fn from(input: &str) -> Game {
         let (id, hands) = input.split_once(": ").unwrap();
-        let id = id.split_once(" ").unwrap().1.parse::<usize>().unwrap();
+        let id = id.split_once(' ').unwrap().1.parse::<usize>().unwrap();
         let hands = hands.split("; ").map(Hand::from).collect();
         Game { id, hands }
     }
