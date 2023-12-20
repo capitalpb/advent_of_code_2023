@@ -22,6 +22,7 @@ pub fn get_solver(day: u8) -> Option<Box<dyn Solver>> {
         9 => Some(Box::new(day09::Day09 {})),
         10 => Some(Box::new(day10::Day10 {})),
         11 => Some(Box::new(day11::Day11 {})),
+        13 => Some(Box::new(day13::Day13 {})),
         14 => Some(Box::new(day14::Day14 {})),
         15 => Some(Box::new(day15::Day15 {})),
         _ => None,
